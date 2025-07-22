@@ -64,6 +64,12 @@ body {
 	color: white;
 	font-weight: bold;
 }
+.cuet-logo {
+	max-width: 120px;
+	height: auto;
+	display: block;
+	margin: 0 auto 20px auto;
+}
 
 .nav-menu {
 	display: flex;
@@ -339,6 +345,115 @@ body {
 	opacity: 0.5;
 	animation: backgroundMove 20s linear infinite;
 }
+/* Container for the code block */
+.about-visual {
+	display: flex;
+	justify-content: center;
+	padding: 40px 20px;
+	background: #0f172a;
+	border-radius: 16px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+	overflow-x: auto;
+}
+
+/* Code editor-style container */
+.code-snippet {
+	background: #1e293b;
+	border-radius: 12px;
+	width: 100%;
+	max-width: 700px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	font-family: "Fira Code", monospace;
+}
+
+/* Header with colored buttons */
+.code-header {
+	background: #0f172a;
+	padding: 12px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #94a3b8;
+	font-size: 0.95rem;
+	border-bottom: 1px solid #334155;
+}
+
+/* Mac-style buttons */
+.code-buttons {
+	display: flex;
+	gap: 8px;
+}
+
+.code-buttons .btn {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.code-buttons .red {
+	background-color: #ff5f56;
+}
+.code-buttons .yellow {
+	background-color: #ffbd2e;
+}
+.code-buttons .green {
+	background-color: #27c93f;
+}
+
+/* Code title text */
+.code-title {
+	font-weight: 500;
+	font-family: "Segoe UI", sans-serif;
+}
+
+/* Code area styling */
+.code-content {
+	padding: 20px;
+	overflow-x: auto;
+	background: #1e293b;
+	color: #e2e8f0;
+}
+
+.code-content pre {
+	margin: 0;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.animated-code {
+	font-size: 1rem;
+	line-height: 1.6;
+	animation: fadeIn 0.5s ease-in-out both;
+}
+
+/* Optional animation */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.about-visual {
+		padding: 20px 10px;
+	}
+
+	.code-snippet {
+		width: 100%;
+	}
+
+	.code-content {
+		font-size: 0.9rem;
+	}
+}
 
 /* About Section */
 .about {
@@ -357,7 +472,7 @@ body {
 	font-size: 3rem;
 	font-weight: 700;
 	margin-bottom: 20px;
-	background: linear-gradient(45deg, #2c5aa0, #4ecdc4);
+	background: linear-gradient(45deg, #ffca1c, #4ecdc4);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -612,11 +727,13 @@ body {
 
 /* Future Tech Section */
 .future-tech {
-	padding: 100px 0;
-	background: #0f172a;
-	color: white;
+	padding: 120px 0;
+	background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #000 100%);
+	color: #00ff88;
 	position: relative;
 	overflow: hidden;
+	font-family: "Courier New", monospace;
+	text-shadow: 0 0 10px #00ff88;
 }
 
 .future-tech::before {
@@ -626,8 +743,88 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:0.1" /></linearGradient></defs><circle cx="100" cy="100" r="50" fill="url(%23grad)"/><circle cx="900" cy="200" r="80" fill="url(%23grad)"/><circle cx="200" cy="800" r="60" fill="url(%23grad)"/><circle cx="800" cy="900" r="100" fill="url(%23grad)"/></svg>');
-	animation: backgroundMove 30s linear infinite;
+	background: radial-gradient(
+			circle at 20% 30%,
+			rgba(0, 255, 136, 0.1) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 80% 70%,
+			rgba(255, 0, 136, 0.08) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 60% 20%,
+			rgba(136, 0, 255, 0.06) 0%,
+			transparent 50%
+		),
+		linear-gradient(
+			45deg,
+			transparent 48%,
+			rgba(0, 255, 136, 0.02) 49%,
+			rgba(0, 255, 136, 0.02) 51%,
+			transparent 52%
+		),
+		linear-gradient(
+			-45deg,
+			transparent 48%,
+			rgba(255, 0, 136, 0.02) 49%,
+			rgba(255, 0, 136, 0.02) 51%,
+			transparent 52%
+		);
+	background-size: 400px 400px, 600px 600px, 500px 500px, 100px 100px,
+		100px 100px;
+	animation: cyberPulse 8s ease-in-out infinite alternate,
+		gridShift 20s linear infinite;
+	opacity: 0.7;
+}
+
+.future-tech::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		rgba(0, 255, 136, 0.1) 45%,
+		rgba(0, 255, 136, 0.3) 50%,
+		rgba(0, 255, 136, 0.1) 55%,
+		transparent 100%
+	);
+	animation: scanLine 4s linear infinite;
+}
+
+@keyframes cyberPulse {
+	0% {
+		transform: scale(1) rotate(0deg);
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		transform: scale(1.05) rotate(2deg);
+		filter: hue-rotate(30deg);
+	}
+}
+
+@keyframes gridShift {
+	0% {
+		background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+	}
+	100% {
+		background-position: 400px 400px, -600px 600px, 500px -500px, 100px 100px,
+			-100px -100px;
+	}
+}
+
+@keyframes scanLine {
+	0% {
+		left: -100%;
+	}
+	100% {
+		left: 100%;
+	}
 }
 
 .tech-grid {
@@ -1528,84 +1725,129 @@ body {
 	opacity: 1;
 	transform: translateY(0);
 }
-/* === General Styles === */
-body {
-	font-family: "Segoe UI", sans-serif;
-	margin: 0;
-	padding: 0;
-	background: #f4f4f4;
-	color: #222;
+
+/* CSS for welcomebatch24.java font styling */
+.welcomebatch24-java,
+.code-welcomebatch24,
+#welcomebatch24,
+[class*="welcomebatch24"] {
+	color: #00d4aa !important;
+	font-family: "Courier New", "Monaco", "Consolas", monospace !important;
+	font-weight: 600 !important;
+	text-shadow: 0 0 5px rgba(0, 212, 170, 0.3) !important;
+	background: rgba(0, 212, 170, 0.1) !important;
+	padding: 2px 6px !important;
+	border-radius: 4px !important;
+	border: 1px solid rgba(0, 212, 170, 0.3) !important;
+	letter-spacing: 0.5px !important;
 }
 
-section {
-	padding: 60px 20px;
+.welcomebatch24-java:hover,
+.code-welcomebatch24:hover,
+#welcomebatch24:hover,
+[class*="welcomebatch24"]:hover {
+	color: #00ff99 !important;
+	text-shadow: 0 0 8px rgba(0, 255, 153, 0.5) !important;
+	background: rgba(0, 255, 153, 0.15) !important;
+	transform: scale(1.02);
+	transition: all 0.3s ease;
 }
 
-h2 {
+/* Alternative styling for Java file references */
+.java-file-name,
+.file-welcomebatch24 {
+	color: #ff6b6b !important;
+	font-family: "SF Mono", "Monaco", "Inconsolata", monospace !important;
+	font-size: 1.1rem !important;
+	font-weight: 500 !important;
+	background: linear-gradient(
+		45deg,
+		rgba(255, 107, 107, 0.1),
+		rgba(255, 107, 107, 0.2)
+	) !important;
+	padding: 4px 8px !important;
+	border-radius: 6px !important;
+	border-left: 3px solid #ff6b6b !important;
+	display: inline-block !important;
+}
+/* Future of Technology Section - Languages/Tags Style */
+
+.future-of-technology {
+	background: #1e1e2f; /* Dark solid background for contrast */
+	padding: 50px 20px;
+	border-radius: 16px;
+	margin: 40px 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	color: #fff;
 	text-align: center;
-	font-size: 2.5em;
-	margin-bottom: 40px;
-	color: #333;
 }
 
-/* === Future Technology Section === */
-#future-technology {
-	background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-	color: #ffffff;
-	padding: 80px 20px;
-	text-align: center;
+.future-of-technology h2 {
+	font-size: 2.8rem;
+	font-weight: 700;
+	margin-bottom: 30px;
+	color: #a0aec0;
+	letter-spacing: 1.2px;
 }
 
-#future-technology h2 {
-	font-size: 3em;
-	margin-bottom: 20px;
-	background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	display: inline-block;
-}
-
-#future-technology p {
-	max-width: 800px;
-	margin: 0 auto;
-	font-size: 1.2em;
+.future-of-technology p {
+	max-width: 700px;
+	margin: 0 auto 40px;
+	font-size: 1.1rem;
 	line-height: 1.6;
-	opacity: 0.9;
+	color: #cbd5e1;
 }
 
-.future-tech-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 30px;
-	margin-top: 40px;
+.future-of-technology .tech-highlights {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
 }
 
-.future-tech-item {
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	padding: 20px;
-	border-radius: 12px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	backdrop-filter: blur(5px);
+.future-of-technology .tech-item {
+	background: #2d3748; /* Darker pill background */
+	padding: 10px 20px;
+	border-radius: 9999px; /* pill shape */
+	font-weight: 600;
+	font-size: 1rem;
+	color: #edf2f7;
+	box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
+	cursor: default;
+	user-select: none;
+	transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.future-tech-item:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.future-of-technology .tech-item:hover {
+	background-color: #4c51bf; /* subtle purple accent */
+	transform: translateY(-4px);
+	box-shadow: 0 6px 15px rgb(76 81 191 / 0.5);
 }
 
-.future-tech-item h3 {
-	color: #00d2ff;
-	font-size: 1.5em;
-	margin-bottom: 10px;
-}
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+	.future-of-technology {
+		padding: 40px 15px;
+		margin: 20px 0;
+	}
 
-.future-tech-item p {
-	font-size: 1em;
-	color: #e0e0e0;
-	opacity: 0.8;
-}
+	.future-of-technology h2 {
+		font-size: 2.2rem;
+	}
 
+	.future-of-technology p {
+		font-size: 1.1rem;
+	}
+
+	.future-of-technology .tech-highlights {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.future-of-technology .tech-item {
+		min-width: 250px;
+	}
+}
 /* Stagger animation for cards */
 .stagger-item {
 	opacity: 0;
